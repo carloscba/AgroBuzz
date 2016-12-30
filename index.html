@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AgroBuzz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .dimple-bar{
+            width: 10px;
+            fill : cornflowerblue !important;
+            stroke: cornflowerblue !important;
+            opacity: .5;
+        }
+        .tick{
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body ng-app="mapApp" ng-controller="appCtrl as app">
+    
+    <div id="chart"></div>
+    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="js/agrobuzz.js"></script>
+</body>
+
+</html>
