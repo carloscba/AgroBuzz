@@ -4,7 +4,7 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
     
     $http({
 		method: 'GET',
-	    url: "http://agrobuzzapp.herokuapp.com/campo"
+	    url: "https://agrobuzzapp.herokuapp.com/campo"
     }).then(function successCallback(response) {
 
         $scope.dataGraph = [];
