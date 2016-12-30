@@ -7,25 +7,26 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
 	    url: "http://agrobuzzapp.herokuapp.com/campo"
     }).then(function successCallback(response) {
 
-        var dataGraph = [];
+        $scope.dataGraph = [];
         angular.forEach(response.data, function(data, key) {
-            if(data.temperatura > 17 && data.temperatura < 22 && data.humedad > 75){
+            if(data.temperatura >= 16 && data.temperatura <= 27){
                 var fechaObj = new Date(data.fecha) 
 
-                dataGraph.push({
+                $scope.dataGraph.push({
                     "fecha" : fechaObj,
                     "dia"   : fechaObj.getDate(),
                     "hora"   : fechaObj.getHours(),
                     "temperatura" : parseFloat(data.temperatura),
-                    "precipitacion" : parseFloat(data.precipitacion)
+                    "precipitacion" : parseFloat(data.precipitacion),
+                    "humedad" : parseFloat(data.humedad),
                 });
             }
         });
-        console.log(dataGraph);
+        console.log($scope.dataGraph);
 
         svg.selectAll('*').remove();
 
-        var myChart = new dimple.chart(svg, dataGraph);
+        var myChart = new dimple.chart(svg, $scope.dataGraph);
         myChart.setBounds(60, 30, "100%", 205)
 
         var x = myChart.addCategoryAxis("x", "dia");
@@ -36,12 +37,12 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
         yAxis1 = myChart.addMeasureAxis("y", "hora");
         yAxis1.overrideMax = 24;
         yAxis1.title = "Hora";        
+        /*
+        yAxis2 = myChart.addMeasureAxis("y", "humedad");
 
-        yAxis2 = myChart.addMeasureAxis("y", "precipitacion");
-
-        var s2 = myChart.addSeries("precipitacion", dimple.plot.bar, [x, yAxis2]);  
+        var s2 = myChart.addSeries("humedad", dimple.plot.bar, [x, yAxis2]);  
         s2.stacked = true;  
-
+        */
         var s1 = myChart.addSeries("temperatura", dimple.plot.point, [x, yAxis1]);
         s1.aggregate = dimple.aggregateMethod.avg;
         s1.stacked = false;
