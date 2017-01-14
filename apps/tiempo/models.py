@@ -11,7 +11,4 @@ class Tiempo(models.Model):
     humedad = models.FloatField()
     rocio = models.FloatField()
     precipitacion = models.FloatField()
-    
-
-    def __unicode__(self):
-        return '{}'.format(self.fecha)
+   
