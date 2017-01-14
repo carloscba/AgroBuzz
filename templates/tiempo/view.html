@@ -1,7 +1,36 @@
 {% extends 'base/index.html'%}
-
+{% load staticfiles %}
 {% block main %}
-    
-        <h1>{{temperaturas}}</h1>
-    
+        <div ng-app="mapApp" ng-controller="appCtrl as app">
+                <div class="row">
+
+                        <div class="col-md-12">
+                                <div id="chart"></div>
+                        </div>
+                        
+                        </div>
+                        <div class="row">
+                        <div class="col-md-3">
+                                <h3>Roya común del maiz</h3>
+                                <p><strong>Grupo de cultivos:</strong> Cereales</p>
+                                <p><strong>Especie hospedante:</strong> Maíz (Zea mays)</p>
+                                <p><strong>Etiología:</strong> Hongo. Biotrófico</p>
+                                <p><strong>Agente causal:</strong> Puccinia sorghi Schwein</p>
+                                <p><strong> predisponentes:</strong> Susceptibilidad de los genotipos y abundancia del inóculo. Los tejidos más jóvenes o estados juveniles son más susceptibles. La temperatura ideal para germinación de esporas es 17ºC, aunque buena germinación ocurre entre 13 a 27ºC. La formación de una pústula puede llevar entre 5 a 7 días a 20-25ºC. Si el ataque de roya es severo incrementa las pudriciones de raíz y tallo. La germinación de esporas se muy baja con temperaturas > a 32ºC (Cina et al., 2009). A veces se asocian epidemias con siembras tardías y escasez de lluvia.</p>  
+                                <p class="small">
+                                *Herbario Virtual. Cátedra de Fitopatología. Facultad de Agronomía de la Universidad de Buenos Aires. http://herbariofitopatologia.agro.uba.ar                    
+                                </p>              
+                        </div>
+                        <div class="col-md-9">
+                                <div class="col-md-12">
+                                        <h3>Registros de temperatura entre 16ºC y 27ºC</h3>
+                                        <p>Estación Campo Escuela, Diciembre 2016</p>
+                                </div>
+                        </div>
+                </div>          
+        </div>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="{% static 'js/agrobuzz.js' %}"></script>        
 {% endblock %}
