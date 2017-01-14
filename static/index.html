@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-9">
                 <div class="col-md-12">
-                    <h3>Registros de temperatura entre 16ºC y 23ºC</h3>
+                    <h3>Registros de temperatura entre 16ºC y 27ºC</h3>
                     <p>Estación Campo Escuela, Diciembre 2016</p>
                 </div>                  
                 <table class="table table-striped">
@@ -50,7 +50,8 @@
                         <th>Humedad</th>
                     </thead>
                     <tr ng-repeat="data in dataGraph | orderBy:'fecha'">
-                        <td>{{data.fecha | date:'dd/MM/yyyy hh:mm'}}</td>
+                        <!--<td>{{data.fecha | date:'dd/MM/yyyy hh:mm'}}</td>-->
+                        <td>{{data.dia}} - {{data.hora}}</td>
                         <td>{{data.temperatura}}ºC</td>
                         <td>{{data.humedad}}%</td>
                     </tr>
