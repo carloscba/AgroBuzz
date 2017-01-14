@@ -11,7 +11,6 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
         angular.forEach(response.data, function(data, key) {
             
                 var fechaObj = new Date(data.fecha) 
-                console.log(fechaObj)
                 $scope.dataGraph.push({
                     "fecha"         : fechaObj,
                     "dia"           : fechaObj.getDate(),
@@ -43,5 +42,37 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
        
            
     });
+    
+    $http({
+		method: 'GET',
+	    url: "http://localhost:8000/tiempo/pordia/"
+    }).then(function successCallback(response) {
+        
+        console.log(response.data)
+        var svg = dimple.newSvg("#chartDias", "100%", 300);
+ 
+        $scope.dataDay = [];
+        angular.forEach(response.data.day, function(data, key) {
+            
+                $scope.dataDay.push({
+                    "dia"   : data,
+                    "count" : response.data.count[key],
+                });
+            
+        });        
+        console.log($scope.dataDay)
+
+        var myChart = new dimple.chart(svg, $scope.dataDay);
+        myChart.setBounds(50, 30, "100%", 200)
+
+        var x = myChart.addCategoryAxis("x", "dia");
+        x.addOrderRule("day");
+
+        myChart.addMeasureAxis("y", "count");
+        myChart.addSeries(null, dimple.plot.bar);
+
+        myChart.draw();
+
+    });        
 
 });
