@@ -35,19 +35,10 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
         yAxis1 = myChart.addMeasureAxis("y", "hora");
         yAxis1.overrideMax = 23;
         yAxis1.title = "Hora";        
-        /*
-        yAxis2 = myChart.addMeasureAxis("y", "humedad");
 
-        var s2 = myChart.addSeries("humedad", dimple.plot.bar, [x, yAxis2]);  
-        s2.stacked = true;  
-        */
         var s1 = myChart.addSeries("temperatura", dimple.plot.point, [x, yAxis1]);
         s1.aggregate = dimple.aggregateMethod.max;
         s1.stacked = false;
-
-   
-        
-
         myChart.draw();
        
            
