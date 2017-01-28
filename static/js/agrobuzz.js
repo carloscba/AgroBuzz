@@ -4,7 +4,7 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
     
     $http({
 		method: 'GET',
-	    url: "http://localhost:8000/tiempo/data/"
+	    url: "../data/"
     }).then(function successCallback(response) {
 
         $scope.dataGraph = [];
@@ -45,7 +45,7 @@ angular.module('mapApp', []).controller('appCtrl', function($scope, $http) {
     
     $http({
 		method: 'GET',
-	    url: "http://localhost:8000/tiempo/pordia/"
+	    url: "../pordia/"
     }).then(function successCallback(response) {
         
         console.log(response.data)
