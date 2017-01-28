@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'agrobuzz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.environ['DBHOST'],
+        'HOST': 'localhost',
         'PORT': '3306',
-        'NAME': os.environ['DB'],
-        'USER': os.environ['DBUSER'],
-        'PASSWORD': os.environ['DBPASSWORD'],
+        'NAME': 'bccba',
+        'USER': 'root',
+        'PASSWORD': '',
     }
 }
 
