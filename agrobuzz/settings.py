@@ -80,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': os.environ['DBHOST'],
         'PORT': '3306',
-        'NAME': os.environ['DBHOST'],
+        'NAME': os.environ['DB'],
         'USER': os.environ['DBUSER'],
-        'PASSWORD': os.environ['heroku_dd2a2d996f41c84'],
+        'PASSWORD': os.environ['DBPASSWORD'],
     }
 }
 
