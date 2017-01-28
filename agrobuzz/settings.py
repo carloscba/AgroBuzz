@@ -25,7 +25,9 @@ SECRET_KEY = '@*#h#g#4v)1x74lozyq5!q=*1_@su3k)n*3a3mw_mjtkgd56!w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'agrobuzz.herokuapp.com',
+]
 
 
 # Application definition
