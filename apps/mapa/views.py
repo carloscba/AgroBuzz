@@ -26,7 +26,7 @@ def xmlDatosEstaciones(request):
             "lat" : estacion.find('latitud').text,
             "lng" : estacion.find('longitud').text,
             "temperatura" : estacion.find('temperatura').text,
-            "temperatura" : estacion.find('humedad').text,
+            "humedad" : estacion.find('humedad').text,
             "temperaturaMinima" : estacion.find('temperaturaMinima').text,
             "temperaturaMaxima" : estacion.find('temperaturaMaxima').text
         })
