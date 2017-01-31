@@ -12,7 +12,7 @@ angular.module('mapApp', []).controller('mapCtrl', function($scope, $http) {
 		
 		map.setCenter(-31.6507, -63.3158);
 		map.zoom(7);
-		
+		map.mapType("terrain")
 
 		var markers = {
 			data: response.data,

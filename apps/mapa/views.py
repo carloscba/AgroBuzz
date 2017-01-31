@@ -20,12 +20,20 @@ def xmlDatosEstaciones(request):
 
     for estacion in root[0]:
         
+        try:
+            temp = float(estacion.find('temperatura').text)
+        except ValueError:
+            temp = 0
+
+        temperatura = int(temp) if temp > 10 else '0'+str(temp)
+
         estaciones.append({
             "numero" : estacion.find('numero').text,
             "title" : estacion.find('nombre').text,
             "lat" : estacion.find('latitud').text,
             "lng" : estacion.find('longitud').text,
             "temperatura" : estacion.find('temperatura').text,
+            "image" : 'static/img/numeros/100'+str(temperatura)+'.png',
             "humedad" : estacion.find('humedad').text,
             "temperaturaMinima" : estacion.find('temperaturaMinima').text,
             "temperaturaMaxima" : estacion.find('temperaturaMaxima').text

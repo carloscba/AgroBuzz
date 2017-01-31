@@ -3,16 +3,16 @@
 {% block main %}
     
     <div class="row" ng-app="mapApp" ng-controller="mapCtrl as app">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="map-container">
                 <div id="map-canvas"></div> 
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h3>Temperatura: <span ng-bind="estacion.temperatura"></span></h3>
             <h4>Humedad: <span ng-bind="estacion.humedad"></span></h4>
             <h4>Minima: <span ng-bind="estacion.temperaturaMinima"></span></h4>
-            <h4>Minima: <span ng-bind="estacion.temperaturaMaxima"></span></h4>
+            <h4>Maxima: <span ng-bind="estacion.temperaturaMaxima"></span></h4>
         </div>
     </div>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvzWscengQ1ItOtYVWjldACDm7jBH3o7I&v=3.exp"></script>
